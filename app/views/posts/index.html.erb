@@ -1,0 +1,32 @@
+<div class="twitter-content">
+    <div class="narrow-content">
+        <h1 class="posts-index-header">Twitter Clone</h1>
+        <% @posts.each do |post| %>
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-avatar">
+                        <%= image_tag "user.png", class: "avatar" %>
+                    </div>
+                    <div class="post-username">
+                        <%= post.user.email %>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <%= post.content %>
+                </div>
+                <div class="post-footer">
+                    <div class="post-likes">
+                        <%=link_to(post_likes_path(post), method: :post, class: "like-link") do %>
+                            <i class="far fa-heart"></i>
+                            <%= post.likes.count %>
+                        <% end %>
+                    </div>
+                    <div class="post-comments">
+                        <i class="far fa-comment"></i>
+                        <%= post.comments.count%>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
