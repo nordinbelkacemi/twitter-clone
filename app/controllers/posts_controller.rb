@@ -9,6 +9,10 @@ class PostsController < ApplicationController
 
     def index
         @posts = Post.all
+        # Post.all.each do |post|
+        #     liked = Like.where(likeable: post, user: current_user).any?
+        #     posts << {post: post, liked: liked}
+        # end
     end
 
     def edit
@@ -22,5 +26,4 @@ class PostsController < ApplicationController
     def destroy
 
     end
-
 end

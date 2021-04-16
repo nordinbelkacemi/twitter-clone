@@ -1,0 +1,4 @@
+<%= link_to(like_path(@like), method: :delete, remote: true, class: "unlike-link", id: "unlike-" + @like.id.to_s) do %>
+    <i class="fas fa-heart"></i>
+    <%= @likeable.likes.count %>
+<% end %>
