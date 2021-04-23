@@ -1,0 +1,70 @@
+<div class="twitter-content">
+    <div class="narrow-content">
+        <div class="post" style="margin-top: 100px;margin-bottom: 50px;">
+            <div class="post-header">
+                <div class="post-avatar">
+                    <%= image_tag "user.png", class: "avatar" %>
+                </div>
+                <div class="post-username">
+                    <%= @post.user.email %>
+                </div>
+            </div>
+            <div class="post-content">
+                <%= @post.content %>
+            </div>
+            <div class="post-footer">
+                <div class="post-likes likeable-<%= @post.id %>">
+                    <% if current_user.likes.where(likeable: @post).empty? %>
+                        <%= link_to(post_likes_path(@post), method: :post, remote: true, class: "like-link") do %>
+                            <i class="far fa-heart"></i>
+                            <%= @post.likes.count %>
+                        <% end %>
+                    <% else %>
+                        <%= link_to(like_path(current_user.likes.where(likeable: @post).first), method: :delete, remote: true, class: "unlike-link", id: "unlike-" + current_user.likes.where(likeable: @post).first.id.to_s) do %>
+                            <i class="fas fa-heart"></i>
+                            <%= @post.likes.count %>
+                        <% end %>
+                    <% end %>
+                </div>
+                <%= link_to(post_comments_path(@post), class: "comment-link") do %>
+                    <i class="far fa-comment"></i>
+                    <%= @post.comments.count%>
+                <% end %>
+            </div>
+        </div>
+
+        <h2>Comments</h2>
+
+        <hr>
+
+        <div class="comments">
+            <% @comments.each do |comment| %>
+                <div class="comment">
+                    <div class="comment-left">
+                        <div class="comment-username">
+                            <%= @post.user.email %>
+                        </div>
+                        <div class="comment-content">
+                            <%= comment.content %>
+                        </div>
+                    </div>
+                    <div class="comment-likes likeable-<%= comment.id %>">
+                        <% if current_user.likes.where(likeable: comment).empty? %>
+                            <%= link_to(comment_likes_path(comment), method: :post, remote: true, class: "like-link") do %>
+                                <i class="far fa-heart"></i>
+                            <% end %>
+                        <% else %>
+                            <%= link_to(like_path(current_user.likes.where(likeable: comment).first), method: :delete, remote: true, class: "unlike-link", id: "unlike-" + current_user.likes.where(likeable: comment).first.id.to_s) do %>
+                                <i class="fas fa-heart"></i>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+            <%= simple_form_for([@post, @comment], :url => post_comments_path(@post), input_html: { class: "new-comment-form" }) do |f| %>
+                <%= f.input :content, input_html: { class: "content-input" } %>
+                <%= f.submit class: "btn btn-outline-primary" %>
+            <% end %>
+        </div>
+    </div>
+</div>

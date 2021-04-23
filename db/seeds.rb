@@ -51,6 +51,24 @@ Comment.create!(
     content: ":("
 )
 
+Comment.create!(
+    user: user,
+    post: Post.first,
+    content: "Try eating some fucking shit you stupid bitch :)💩"
+)
+
+Comment.create!(
+    user: user,
+    post: Post.first,
+    content: "COCKSUCKER! 🍆🍆🍆"
+)
+
+Comment.create!(
+    user: user,
+    post: Post.first,
+    content: "You suck! Everyone hates youuu!"
+)
+
 Like.create!(
     user: User.first,
     likeable: Post.first 
@@ -59,4 +77,9 @@ Like.create!(
 Like.create!(
     user: User.first,
     likeable: Comment.first 
+)
+
+Like.create!(
+    user: User.first,
+    likeable: Comment.third 
 )

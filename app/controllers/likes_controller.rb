@@ -3,19 +3,23 @@ class LikesController < ApplicationController
 
     def create
         @like = Like.new(likeable: @likeable, user: current_user)
+        
+        js_file_path = "likes/create-" + @like.likeable_type.downcase + "-like.js.erb"
+        
         if @like.save
             respond_to do |format|
-                format.js
+                format.js { render js_file_path }
             end
         end
     end
 
     def destroy
         @like = Like.find(params[:id])
+        js_file_path = "likes/destroy-" + @like.likeable_type.downcase + "-like.js.erb"
         @like.destroy
 
         respond_to do |format|
-            format.js
+            format.js { render js_file_path }
         end
     end
 

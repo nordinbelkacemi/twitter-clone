@@ -1,0 +1,2 @@
+document.querySelector(".likeable-<%= @likeable.id %>").querySelector(".like-link").remove();
+document.querySelector(".likeable-<%= @likeable.id %>").innerHTML = "<%= escape_javascript render 'post-unlike-link' %>";

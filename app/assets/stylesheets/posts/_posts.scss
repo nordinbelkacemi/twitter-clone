@@ -49,7 +49,7 @@
 }
 
 .like-link {
-    color: rgba(228, 51, 72, 0.75);
+    color: rgba(228, 51, 72, 0.6);
 }
 
 .like-link:hover {
@@ -58,10 +58,19 @@
 }
 
 .unlike-link {
-    color: rgba(228, 51, 72, 0.75);
+    color: rgba(228, 51, 72, 0.6);
 }
 
 .unlike-link:hover {
     color: rgba(228, 51, 72, 1);
+    text-decoration: none;
+}
+
+.comment-link {
+    color: rgba(29, 161, 242, 0.6);
+}
+
+.comment-link:hover {
+    color: rgba(29, 161, 242, 1);
     text-decoration: none;
 }

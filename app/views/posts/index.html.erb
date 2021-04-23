@@ -29,8 +29,10 @@
                         <% end %>
                     </div>
                     <div class="post-comments">
-                        <i class="far fa-comment"></i>
-                        <%= post.comments.count%>
+                        <%= link_to(new_post_comment_path(post), class: "comment-link") do %>
+                            <i class="far fa-comment"></i>
+                            <%= post.comments.count%>
+                        <% end %>
                     </div>
                 </div>
             </div>
