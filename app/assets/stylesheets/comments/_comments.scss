@@ -27,7 +27,7 @@
     font-weight: 300;
 }
 
-h2 {
+.comment-header {
     font-size: 20px;
     width: 500px;
     justify-content: left;
@@ -41,4 +41,12 @@ hr {
 
 .new-comment-btn {
     margin-bottom: 50px;
+}
+
+.comment_content {
+    width: 100%;
+}
+
+.comment-input {
+    width: 100%
 }

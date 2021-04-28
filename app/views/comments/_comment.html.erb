@@ -1,0 +1,21 @@
+<div class="comment">
+    <div class="comment-left">
+        <div class="comment-username">
+            <%= comment.user.email %>
+        </div>
+        <div class="comment-content">
+            <%= comment.content %>
+        </div>
+    </div>
+    <div class="comment-likes likeable-<%= comment.id %>">
+        <% if current_user.likes.where(likeable: comment).empty? %>
+            <%= link_to(comment_likes_path(comment), method: :post, remote: true, class: "like-link") do %>
+                <i class="far fa-heart"></i>
+            <% end %>
+        <% else %>
+            <%= link_to(like_path(current_user.likes.where(likeable: comment).first), method: :delete, remote: true, class: "unlike-link", id: "unlike-" + current_user.likes.where(likeable: comment).first.id.to_s) do %>
+                <i class="fas fa-heart"></i>
+            <% end %>
+        <% end %>
+    </div>
+</div>

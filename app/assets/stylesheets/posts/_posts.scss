@@ -20,12 +20,16 @@
     display: flex;
     flex-direction: column;
     width: 450px;
-    margin-bottom: 100px;
+    transition: all 0.2s ease;
 }
 
 .post-header {
     display: flex;
     margin-bottom: 15px;
+}
+
+.user {
+    display: flex;
 }
 
 .post-avatar {
@@ -36,11 +40,25 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: rgba(0, 0, 0, 0.7);
+
+    &:hover {
+        color: rgba(0, 0, 0, 1);
+        text-decoration: none;
+    }
 }
 
 .post-content {
     margin-bottom: 10px;
     font-weight: 300;
+}
+
+.post-input {
+    width: 100%
+}
+
+.post-content-input {
+    height: 50px;
 }
 
 .post-footer {
@@ -71,6 +89,51 @@
 }
 
 .comment-link:hover {
+    color: rgba(29, 161, 242, 1);
+    text-decoration: none;
+}
+
+.user-header {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0 100px 0;
+}
+
+.post-header-editable-deletable {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.edit-delete-links {
+    display: flex;
+    align-items: center;
+    width: 50px;
+    justify-content: space-between;
+    visibility: hidden;
+}
+
+.post:hover {
+    .edit-delete-links {
+        visibility: visible;
+    }
+    transform: scale(1.025);
+}
+
+.delete-link {
+    color: rgba(228, 51, 72, 0.6);
+}
+
+.delete-link:hover {
+    color: rgba(228, 51, 72, 1);
+    text-decoration: none;
+}
+
+.edit-link {
+    color: rgba(29, 161, 242, 0.6);
+}
+
+.edit-link:hover {
     color: rgba(29, 161, 242, 1);
     text-decoration: none;
 }

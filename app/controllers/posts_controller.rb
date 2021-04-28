@@ -1,29 +1,61 @@
 class PostsController < ApplicationController
-    def new
+    before_action :set_user, only: [:index]
 
+    def new
+        @post = Post.new
     end
 
     def create
-
+        @post = Post.new(post_params)
+        @post.user = current_user
+        if @post.save
+            redirect_to user_posts_path(current_user)
+        end
     end
 
     def index
-        @posts = Post.all
-        # Post.all.each do |post|
-        #     liked = Like.where(likeable: post, user: current_user).any?
-        #     posts << {post: post, liked: liked}
-        # end
+        if @user.nil?
+            @posts = Post.all
+        else
+            @posts = Post.where(user: @user)
+        end
+
+        @posts = @posts.sort_by { |post| post.created_at }.reverse
     end
 
     def edit
-        
+        @post = Post.find(params[:id])
     end
 
     def update
-
+        # raise
+        @post = Post.find(params[:id])
+        if @post.update(post_params)
+            redirect_to user_posts_path(current_user)
+        end
     end
 
     def destroy
+        @post = Post.find(params[:id])
+        if @post.destroy
+            if params[:user_id].present?
+                user = User.find(params[:user_id])
+                redirect_to user_posts_path(user)
+            else
+                redirect_to posts_path
+            end
+        end
+    end
 
+    private
+
+    def set_user
+        if params[:user_id].present?
+            @user = User.find(params[:user_id])
+        end
+    end
+
+    def post_params
+        params.require(:post).permit(:content)
     end
 end

@@ -12,10 +12,10 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "New Post", "#", class: "nav-link" %>
+          <%= link_to "New Post", new_post_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "My Posts", "#", class: "nav-link" %>
+          <%= link_to "My Posts", user_posts_path(current_user), class: "nav-link" %>
         </li>
         <li class="navitem">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>

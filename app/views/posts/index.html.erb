@@ -1,41 +1,13 @@
-<div class="twitter-content">
-    <div class="narrow-content">
-        <h1 class="posts-index-header">Twitter Clone</h1>
-        <% @posts.each do |post| %>
-            <div class="post">
-                <div class="post-header">
-                    <div class="post-avatar">
-                        <%= image_tag "user.png", class: "avatar" %>
-                    </div>
-                    <div class="post-username">
-                        <%= post.user.email %>
-                    </div>
-                </div>
-                <div class="post-content">
-                    <%= post.content %>
-                </div>
-                <div class="post-footer">
-                    <div class="post-likes likeable-<%= post.id %>">
-                        <% if current_user.likes.where(likeable: post).empty? %>
-                            <%= link_to(post_likes_path(post), method: :post, remote: true, class: "like-link") do %>
-                                <i class="far fa-heart"></i>
-                                <%= post.likes.count %>
-                            <% end %>
-                        <% else %>
-                            <%= link_to(like_path(current_user.likes.where(likeable: post).first), method: :delete, remote: true, class: "unlike-link", id: "unlike-" + current_user.likes.where(likeable: post).first.id.to_s) do %>
-                                <i class="fas fa-heart"></i>
-                                <%= post.likes.count %>
-                            <% end %>
-                        <% end %>
-                    </div>
-                    <div class="post-comments">
-                        <%= link_to(new_post_comment_path(post), class: "comment-link") do %>
-                            <i class="far fa-comment"></i>
-                            <%= post.comments.count%>
-                        <% end %>
-                    </div>
-                </div>
-            </div>
-        <% end %>
+<% if @user.nil? %>
+    <%= render "home_header"%>
+<% else %>
+    <div class="user-header">
+        <%= render "user", user: @user %>
     </div>
-</div>
+<% end %>
+
+<% @posts.each do |post| %>
+    <div class="margin-bottom-100">
+        <%= render "post", post: post %>
+    </div>
+<% end %>

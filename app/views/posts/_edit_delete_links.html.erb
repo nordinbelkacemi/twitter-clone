@@ -1,0 +1,8 @@
+<div class="edit-delete-links">
+    <%= link_to edit_post_path(post), class: "edit-link" do %>
+        <i class="fas fa-pen"></i>
+    <% end %>
+    <%= link_to post_path(post, :user_id => params[:user_id]), method: :delete, class: "delete-link", data: { confirm: "Are you sure?" } do %>
+        <i class="far fa-trash-alt"></i>
+    <% end %>
+</div>

@@ -15,6 +15,14 @@
   <body>
     <%= render "shared/navbar" %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <% if user_signed_in? %>
+      <div class="twitter-content">
+        <div class="narrow-content">
+          <%= yield %>
+        </div>
+      </div>
+    <% else %>
+      <% yield%>
+    <% end%>
   </body>
 </html>
