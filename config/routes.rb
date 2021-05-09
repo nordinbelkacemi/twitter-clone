@@ -8,16 +8,15 @@ Rails.application.routes.draw do
   end
 
   resources :posts, only: [] do
-    resources :comments, only: [:new, :create]  
+    resources :comments, only: [:new, :create, :edit, :update, :destroy]  
     resources :likes, only: [:create]
   end
 
-  resources :comments, only: [:destroy]
   resources :likes, only: [:destroy]
 
   resources :comments, only: [] do
     resources :likes, only: [:create]
   end
 
-  root to: "posts#index", as: :home
+  root to: "pages#home", as: :home
 end

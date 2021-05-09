@@ -1,17 +1,3 @@
-.twitter-content {
-    background-color: gainsboro;
-    display: flex;
-    justify-content: center;
-}
-
-.narrow-content {
-    background-color: white;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .posts-index-header {
     margin: 100px 0 100px 0;
 }
@@ -20,7 +6,6 @@
     display: flex;
     flex-direction: column;
     width: 450px;
-    transition: all 0.2s ease;
 }
 
 .post-header {
@@ -34,18 +19,6 @@
 
 .post-avatar {
     margin-right: 20px;
-}
-
-.post-username {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: rgba(0, 0, 0, 0.7);
-
-    &:hover {
-        color: rgba(0, 0, 0, 1);
-        text-decoration: none;
-    }
 }
 
 .post-content {
@@ -68,6 +41,7 @@
 
 .like-link {
     color: rgba(228, 51, 72, 0.6);
+    transition: all 0.2s ease;
 }
 
 .like-link:hover {
@@ -77,6 +51,7 @@
 
 .unlike-link {
     color: rgba(228, 51, 72, 0.6);
+    transition: all 0.2s ease;
 }
 
 .unlike-link:hover {
@@ -86,6 +61,7 @@
 
 .comment-link {
     color: rgba(29, 161, 242, 0.6);
+    transition: all 0.2s ease;
 }
 
 .comment-link:hover {
@@ -103,37 +79,4 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
-}
-
-.edit-delete-links {
-    display: flex;
-    align-items: center;
-    width: 50px;
-    justify-content: space-between;
-    visibility: hidden;
-}
-
-.post:hover {
-    .edit-delete-links {
-        visibility: visible;
-    }
-    transform: scale(1.025);
-}
-
-.delete-link {
-    color: rgba(228, 51, 72, 0.6);
-}
-
-.delete-link:hover {
-    color: rgba(228, 51, 72, 1);
-    text-decoration: none;
-}
-
-.edit-link {
-    color: rgba(29, 161, 242, 0.6);
-}
-
-.edit-link:hover {
-    color: rgba(29, 161, 242, 1);
-    text-decoration: none;
 }

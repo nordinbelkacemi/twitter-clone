@@ -1,7 +1,10 @@
 <div class="comment">
     <div class="comment-left">
-        <div class="comment-username">
-            <%= comment.user.email %>
+        <div class="comment-user">
+            <%= render "shared/username", user: comment.user%>
+            <% if comment.user == current_user %>
+                <%= render "comments/edit_delete_links", comment: comment, post: comment.post %>
+            <% end %>
         </div>
         <div class="comment-content">
             <%= comment.content %>

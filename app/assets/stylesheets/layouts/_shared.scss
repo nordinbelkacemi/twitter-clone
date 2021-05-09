@@ -82,3 +82,78 @@
 .margin-right-20 {
   margin-right: 20%;
 }
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.twitter-content {
+  background-color: gainsboro;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.narrow-content {
+  background-color: white;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-delete-links {
+  display: flex;
+  align-items: center;
+  width: 50px;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.post:hover {
+  .edit-delete-links {
+    opacity: 1;
+  }
+}
+
+.comment:hover {
+  .edit-delete-links {
+    opacity: 1;
+  }
+}
+
+.delete-link {
+  color: rgba(228, 51, 72, 0.6);
+  transition: color 0.2s ease;
+}
+
+.delete-link:hover {
+  color: rgba(228, 51, 72, 1);
+  text-decoration: none;
+}
+
+.edit-link {
+  color: rgba(29, 161, 242, 0.6);
+  transition: color 0.2s ease;
+}
+
+.edit-link:hover {
+  color: rgba(29, 161, 242, 1);
+  text-decoration: none;
+}
+
+.username {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.7);
+    margin-right: 15px;
+
+    &:hover {
+        color: rgba(0, 0, 0, 1);
+        text-decoration: none;
+    }
+}

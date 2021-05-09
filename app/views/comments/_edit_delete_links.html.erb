@@ -1,0 +1,8 @@
+<div class="edit-delete-links">
+    <%= link_to edit_post_comment_path(post, comment), class: "edit-link" do %>
+        <i class="fas fa-pen"></i>
+    <% end %>
+    <%= link_to post_comment_path(post, comment), method: :delete, class: "delete-link", data: { confirm: "Are you sure?" } do %>
+        <i class="far fa-trash-alt"></i>
+    <% end %>
+</div>

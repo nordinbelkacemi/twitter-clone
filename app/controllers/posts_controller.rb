@@ -8,7 +8,10 @@ class PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
         @post.user = current_user
-        if @post.save
+        if !@post.save
+            alert_invalid_input
+            redirect_to new_post_path(@post)
+        else
             redirect_to user_posts_path(current_user)
         end
     end
@@ -28,11 +31,14 @@ class PostsController < ApplicationController
     end
 
     def update
-        # raise
         @post = Post.find(params[:id])
-        if @post.update(post_params)
+        if !@post.update(post_params)
+            alert_invalid_input
+            redirect_to edit_post_path(@post)
+        else
             redirect_to user_posts_path(current_user)
         end
+
     end
 
     def destroy
@@ -58,4 +64,8 @@ class PostsController < ApplicationController
     def post_params
         params.require(:post).permit(:content)
     end
+
+    def alert_invalid_input
+		flash[:alert] = "Invalid input"
+	end
 end

@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  likes: 1
-  content: MyString
+test_post:
+  likes: 0
+  content: "Hello world!"
 
-two:
-  likes: 1
-  content: MyString
+test_post1:
+  likes: 0
+  content: "test post 1"
+
+test_post2:
+  likes: 0
+  content: "test post 2"

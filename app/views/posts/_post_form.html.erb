@@ -1,0 +1,6 @@
+<%= simple_form_for post do |f| %>
+    <div class="content-form">
+        <%= f.input :content, label: input_prompt, wrapper_html: { class: "post-input" } %>
+        <%= f.submit class: "btn btn-outline-primary" %>
+    </div>
+<% end %>

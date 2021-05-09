@@ -1,9 +1,5 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  likes: 1
-  content: MyString
-
-two:
-  likes: 1
-  content: MyString
+test_comment:
+  user: <=% users(:user1) %>
+  post: <=% posts(:test_post) %>
+  content: "This is a comment"

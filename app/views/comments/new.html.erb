@@ -2,12 +2,7 @@
     <%= render "posts/post", post: @post %>
 </div>
 
-<%= simple_form_for([@post, @comment], url: post_comments_path(@post)) do |f| %>
-    <div class="content-form">
-        <%= f.input :content, label: "Write a new comment", minlength: 1, wrapper_html: { class: "comment-input" } %>
-        <%= f.submit class: "btn btn-outline-primary" %>
-    </div>
-<% end %>
+<%= render "comment_form", comment: @comment, post: @post, input_prompt: "Write a new comment" %>
 
 <h2 class="comment-header"> Comments </h2>
 
