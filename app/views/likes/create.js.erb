@@ -1,0 +1,2 @@
+document.querySelector(".<%= @likeable.class.name.downcase %>-<%= @likeable.id %>-likes").querySelector(".like-link").remove();
+document.querySelector(".<%= @likeable.class.name.downcase %>-<%= @likeable.id %>-likes").innerHTML = "<%= escape_javascript render 'unlike_link' %>";

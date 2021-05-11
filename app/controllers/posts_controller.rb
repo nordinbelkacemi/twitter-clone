@@ -66,6 +66,6 @@ class PostsController < ApplicationController
     end
 
     def alert_invalid_input
-		flash[:alert] = "Invalid input"
-	end
+        flash[:alert] = "Invalid input"
+    end
 end
