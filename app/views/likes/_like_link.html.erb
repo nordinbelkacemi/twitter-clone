@@ -1,5 +1,6 @@
 <% if @like.likeable_type == "Comment" %>
     <%= link_to(comment_likes_path(@like.likeable), method: :post, remote: true, class: 'like-link') do %>
+        <%= @like.likeable.likes.count %>
         <i class='far fa-heart'></i>
     <% end %>
 <% elsif @like.likeable_type == "Post" %>
