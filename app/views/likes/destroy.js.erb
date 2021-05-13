@@ -1,2 +1,2 @@
 document.querySelector("#unlike-<%= @like.id %>").remove();
-document.querySelector(".<%= @like.likeable_type.downcase %>-<%= @like.likeable.id %>-likes").innerHTML = "<%= escape_javascript render 'like_link' %>";
+document.querySelector(".<%= @like.likeable_type.downcase %>-<%= @like.likeable.id %>-likes").innerHTML = "<%= escape_javascript render 'like_link', likeable: @like.likeable, like_count_on_left: is_like_count_on_left(@like) %>";

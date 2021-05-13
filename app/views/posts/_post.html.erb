@@ -8,15 +8,9 @@
     <div class="post-footer">
         <div class="post-likes post-<%= post.id %>-likes">
             <% if current_user.likes.where(likeable: post).empty? %>
-                <%= link_to(post_likes_path(post), method: :post, remote: true, class: "like-link") do %>
-                    <i class="far fa-heart"></i>
-                    <%= post.likes.count %>
-                <% end %>
+                <%= render "likes/like_link", likeable: post, like_count_on_left: false %>
             <% else %>
-                <%= link_to(like_path(current_user.likes.where(likeable: post).first), method: :delete, remote: true, class: "unlike-link", id: "unlike-" + current_user.likes.where(likeable: post).first.id.to_s) do %>
-                    <i class="fas fa-heart"></i>
-                    <%= post.likes.count %>
-                <% end %>
+                <%= render "likes/unlike_link", like: current_user.likes.where(likeable: post).first, like_count_on_left: false %>
             <% end %>
         </div>
         <div class="post-comments">

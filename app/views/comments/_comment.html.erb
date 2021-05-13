@@ -12,15 +12,9 @@
     </div>
     <div class="comment-likes comment-<%= comment.id %>-likes">
         <% if current_user.likes.where(likeable: comment).empty? %>
-            <%= link_to(comment_likes_path(comment), method: :post, remote: true, class: "like-link") do %>
-                <%= comment.likes.count %>
-                <i class="far fa-heart"></i>
-            <% end %>
+            <%= render "likes/like_link", likeable: comment, like_count_on_left: true %>
         <% else %>
-            <%= link_to(like_path(current_user.likes.where(likeable: comment).first), method: :delete, remote: true, class: "unlike-link", id: "unlike-" + current_user.likes.where(likeable: comment).first.id.to_s) do %>
-                <%= comment.likes.count %>
-                <i class="fas fa-heart"></i>
-            <% end %>
+            <%= render "likes/unlike_link", like: current_user.likes.where(likeable: comment).first, like_count_on_left: true %>
         <% end %>
     </div>
 </div>

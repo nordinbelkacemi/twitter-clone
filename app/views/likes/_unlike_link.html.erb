@@ -1,9 +1,9 @@
-<%= link_to(like_path(@like), method: :delete, remote: true, class: "unlike-link", id: "unlike-" + @like.id.to_s) do %>
-    <% if @like.likeable_type == "Post" %>
-        <i class="fas fa-heart"></i>
-        <%= @like.likeable.likes.count %>
-    <% elsif @like.likeable_type == "Comment" %>
-        <%= @like.likeable.likes.count %>
-        <i class="fas fa-heart"></i>
+<%= link_to(like_path(like), method: :delete, remote: true, class: "unlike-link", id: "unlike-" + like.id.to_s) do %>
+    <% if like_count_on_left %>
+        <%= like.likeable.likes.count %>
+    <% end %>
+    <i class='fas fa-heart'></i>
+    <% unless like_count_on_left %>
+        <%= like.likeable.likes.count %>
     <% end %>
 <% end %>
